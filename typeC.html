@@ -1,0 +1,63 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dittoo! Type C/</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Pretendard-Medium';
+        src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+        font-weight: 500;
+        font-style: normal;}
+    @font-face {
+     font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+     font-weight: 400;
+       font-style: normal;
+    </style>
+    <style>
+        body, html{margin: 0;padding: 0;width: 100%; heightx: 100%; overflow: hidden; font-family: 'Pretendard-Regular'; font-weight: 400; font-size: 25px;}
+        nav {margin: 0;position: absolute; top: 5%; left: 50%;transform: translate(-50%, -50%); z-index: 10;text-align: center; width: auto;min-width: 300px;}
+        #video {position: absolute;top: 0;left: 0;width: 100%; height: 100%;object-fit: cover;z-index: 1;transform: scaleX(-1);}
+        .desktop {display: flex; color: white;padding: 0px}
+        .desktop {list-style-type: none;}
+        .desktop li a {text-decoration: none; color: #FFFFFF}
+        nav ul.desktop li {display: inline-block;margin: 0 50px;}
+        em {font-style: normal; font-weight: 500; text-decoration: underline;}
+        img {position: absolute;transform: translate(-50%, -50%);z-index: 10;}
+        .img1 img {width: 72%;top: 88%; left: 52%}
+        .img2 img {width: 24%;top: 60%; left: 18%}
+    </style>
+</head>
+<body>
+    <nav>
+        <ul class="desktop">
+            <li><a href="index.html">Type A</u></li>
+            <li><a href="TypeB.html">Type B</a></li>
+            <li><a><em>Type C</em></a></li>
+        </ul>
+    </nav>
+    <div class="img1">
+    <img src="3-1.svg">
+    </div>
+    <div class="img2">
+    <img src="1-2.svg">
+    </div>
+    <video id="video" autoplay></video>
+    <script>
+        const video = document.getElementById('video');
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.play();
+                })
+                .catch(function(error) {
+                    console.error("카메라에 접근할 수 없습니다:", error);
+                });
+        } else {
+            console.error("이 브라우저는 getUserMedia를 지원하지 않습니다.");
+        }
+    </script>
+</body>
+</html>
